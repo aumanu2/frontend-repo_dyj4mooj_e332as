@@ -1,0 +1,55 @@
+/* Global styles for School Carnival */
+:root{
+  --bg: #0b0f14;
+  --card: #0f1621;
+  --muted: #a7b0c0;
+  --text: #e8eef8;
+  --brand: #ffd166; /* yellow accent */
+  --brand-2: #6ee7ff;
+  --glow: 0 0 40px rgba(255, 209, 102, 0.25), 0 0 80px rgba(110, 231, 255, 0.12);
+}
+*{box-sizing:border-box}
+html,body{height:100%;}
+html{scroll-behavior:smooth;background:var(--bg);}
+body{margin:0;font-family:Manrope,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Helvetica Neue",Arial,"Noto Sans",sans-serif;color:var(--text);background:var(--bg);}
+
+.container{width:min(1120px, 90%);margin-inline:auto}
+.container.narrow{width:min(760px, 90%)}
+
+.section{position:relative;padding:100px 0}
+.section__title{font-size: clamp(28px, 3.6vw, 44px);line-height:1.1;margin:0 0 16px;letter-spacing:-0.02em}
+.section__title.center{text-align:center}
+.eyebrow{letter-spacing:.2em;text-transform:uppercase;color:var(--brand);font-weight:700;font-size:12px;margin:0 0 12px;opacity:.9}
+.muted{color:var(--muted)}
+.center{text-align:center}
+
+.btn{display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border-radius:12px;border:1px solid #223148;background:transparent;color:var(--text);text-decoration:none;font-weight:700;transition:transform .2s ease, background .2s ease, box-shadow .2s ease}
+.btn:hover{transform:translateY(-2px);box-shadow:var(--glow)}
+.btn--primary{background:linear-gradient(135deg, #2a3a52 0%, #1b2a3e 100%);border-color:#2e415e}
+.btn--ghost{background:transparent;border-color:#34465f}
+.btn.large{padding:14px 22px;font-size:18px}
+
+/* Navigation */
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(9,12,17,0.5);backdrop-filter: blur(10px);border-bottom:1px solid rgba(52,70,95,.4)}
+.nav__inner{display:flex;align-items:center;justify-content:space-between;width:min(1120px, 90%);margin-inline:auto;padding:16px 0}
+.brand{font-weight:900;letter-spacing:.04em;color:var(--text);text-decoration:none}
+.nav__links{display:flex;gap:16px;align-items:center}
+.nav__links a{color:var(--text);text-decoration:none;opacity:.9;border:1px solid transparent;padding:8px 12px;border-radius:10px}
+.nav__links a:hover{border-color:#2e415e;background:#0e151f}
+
+/* Footer */
+.footer{padding:40px 0;border-top:1px solid #1f2b3b;background:#0a0f16}
+.footer__inner{display:flex;align-items:center;justify-content:space-between}
+.footer .socials{display:flex;gap:12px}
+.footer .socials a{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:8px;background:#0e1520;border:1px solid #223148;color:var(--text);text-decoration:none}
+.footer .socials a:hover{box-shadow:var(--glow)}
+
+/* Reveal animation base */
+.reveal{opacity:0;transform:translateY(24px);}
+.revealed{opacity:1;transform:none;transition:opacity .8s ease, transform .8s ease}
+
+/* Utility */
+.grid{display:grid;gap:28px}
+
+/* Smooth content min height so hero visible */
+#smooth-content{min-height:100vh}

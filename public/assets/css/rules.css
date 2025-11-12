@@ -1,0 +1,14 @@
+/* Rules section */
+.rules{background:linear-gradient(180deg, #0b0f14 0%, #0c121a 100%)}
+.rules__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:22px}
+.rule{background:#0e1520;border:1px solid #223148;border-radius:14px;padding:18px;position:relative;overflow:hidden}
+.rule::after{content:"";position:absolute;inset:-30% -20% auto -20%;height:140px;background:radial-gradient(60% 50% at 30% 40%, rgba(255,209,102,.08), transparent 70%)}
+.rule h4{margin:0 0 8px}
+.rule p{color:var(--muted);margin:0}
+
+@media (max-width: 1000px){
+  .rules__grid{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width: 640px){
+  .rules__grid{grid-template-columns:1fr}
+}

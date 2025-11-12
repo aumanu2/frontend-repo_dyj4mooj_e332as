@@ -3,16 +3,223 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Flames App</title>
-    <link rel="icon" type="image/x-icon" href="favicon.svg">
+    <title>School Carnival — Flagship Event</title>
+    <meta name="description" content="Single page website for the College Flagship Event — School Carnival. Modern, animated, and beautifully crafted." />
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/geist@1.0.0/dist/fonts/geist-sans/style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/geist@1.0.0/dist/fonts/geist-mono/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="/assets/css/global.css">
+    <link rel="stylesheet" href="/assets/css/hero.css">
+    <link rel="stylesheet" href="/assets/css/about.css">
+    <link rel="stylesheet" href="/assets/css/schedule.css">
+    <link rel="stylesheet" href="/assets/css/rules.css">
+    <link rel="stylesheet" href="/assets/css/events.css">
+
+    <!-- Spline Web Component (for hero background) -->
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@latest/build/spline-viewer.js"></script>
+
+    <!-- GSAP + ScrollTrigger -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+    <!-- Locomotive Scroll -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.css" />
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+    <!-- Top Navigation -->
+    <header class="nav">
+      <div class="nav__inner">
+        <a href="#hero" class="brand" data-scroll-to>School Carnival</a>
+        <nav class="nav__links">
+          <a href="#about" data-scroll-to>About</a>
+          <a href="#schedule" data-scroll-to>Schedule</a>
+          <a href="#rules" data-scroll-to>Rules</a>
+          <a href="#events" data-scroll-to>Events</a>
+          <a href="#register" class="btn btn--primary" data-scroll-to>Register</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Smooth scrolling wrapper for Locomotive -->
+    <main id="smooth-content" data-scroll-container>
+      <!-- HERO -->
+      <section id="hero" class="section hero" data-scroll-section>
+        <div class="hero__bg">
+          <spline-viewer style="width:100%;height:100%;" url="https://prod.spline.design/vc19ejtcC5VJjy5v/scene.splinecode"></spline-viewer>
+          <div class="hero__gradient"></div>
+        </div>
+        <div class="container hero__content">
+          <p class="eyebrow" data-speed="1.05" data-scroll>College Flagship Event</p>
+          <h1 class="hero__title" data-speed="0.95" data-scroll>
+            School Carnival
+            <span class="accent">2025</span>
+          </h1>
+          <p class="hero__subtitle" data-speed="1.1" data-scroll>
+            A one-day celebration of creativity, tech, and talent — featuring competitions, showcases, workshops, and unforgettable vibes.
+          </p>
+          <div class="hero__cta">
+            <a href="#events" class="btn btn--primary" data-scroll-to>Explore Events</a>
+            <a href="#schedule" class="btn btn--ghost" data-scroll-to>View Schedule</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section id="about" class="section about" data-scroll-section>
+        <div class="container grid about__grid">
+          <div class="about__copy reveal">
+            <h2 class="section__title">About the Carnival</h2>
+            <p>
+              School Carnival brings the campus together with interactive zones, live performances, maker booths, and competitions across art, code, and culture. Designed to be inclusive, energetic, and future-forward.
+            </p>
+            <ul class="about__stats">
+              <li><span>30+</span> Events</li>
+              <li><span>1,000+</span> Attendees</li>
+              <li><span>10</span> Zones</li>
+              <li><span>15</span> Colleges</li>
+            </ul>
+          </div>
+          <div class="about__card reveal">
+            <div class="card__glow"></div>
+            <div class="card__body">
+              <h3>What to Expect</h3>
+              <ul>
+                <li>Immersive installations and tech demos</li>
+                <li>Micro-competitions with instant prizes</li>
+                <li>Workshops led by industry mentors</li>
+                <li>Food, music, and night showcase</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SCHEDULE -->
+      <section id="schedule" class="section schedule" data-scroll-section>
+        <div class="container">
+          <h2 class="section__title center">Schedule</h2>
+          <div class="timeline">
+            <div class="timeline__item reveal">
+              <div class="time">09:00</div>
+              <div class="dot"></div>
+              <div class="content"><h4>Gates Open + Registration</h4><p>Badge pickup and zone map.</p></div>
+            </div>
+            <div class="timeline__item reveal">
+              <div class="time">10:00</div>
+              <div class="dot"></div>
+              <div class="content"><h4>Opening Ceremony</h4><p>Welcome note and performance.</p></div>
+            </div>
+            <div class="timeline__item reveal">
+              <div class="time">11:00</div>
+              <div class="dot"></div>
+              <div class="content"><h4>Workshops Begin</h4><p>Design, AI, Robotics tracks.</p></div>
+            </div>
+            <div class="timeline__item reveal">
+              <div class="time">14:00</div>
+              <div class="dot"></div>
+              <div class="content"><h4>Competitions</h4><p>Hack sprint, art jam, dance-off.</p></div>
+            </div>
+            <div class="timeline__item reveal">
+              <div class="time">18:30</div>
+              <div class="dot"></div>
+              <div class="content"><h4>Showcase + Awards</h4><p>Top teams and live show.</p></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- RULES -->
+      <section id="rules" class="section rules" data-scroll-section>
+        <div class="container">
+          <h2 class="section__title center">General Rules</h2>
+          <div class="rules__grid">
+            <div class="rule reveal"><h4>Registration</h4><p>Valid student ID required. Teams must register before entry.</p></div>
+            <div class="rule reveal"><h4>Code of Conduct</h4><p>Be respectful. Zero tolerance for harassment or misconduct.</p></div>
+            <div class="rule reveal"><h4>Fair Play</h4><p>No plagiarism or sabotage. Judges’ decision is final.</p></div>
+            <div class="rule reveal"><h4>Safety</h4><p>Follow venue guidelines. Report hazards to staff.</p></div>
+            <div class="rule reveal"><h4>Time</h4><p>Arrive 10 minutes before each event slot to avoid disqualification.</p></div>
+            <div class="rule reveal"><h4>Media</h4><p>Photography allowed unless marked otherwise. Tag us!</p></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- EVENTS -->
+      <section id="events" class="section events" data-scroll-section>
+        <div class="container">
+          <h2 class="section__title center">Featured Events</h2>
+          <div class="events__grid">
+            <article class="event reveal">
+              <div class="event__tag">Tech</div>
+              <h3>Hack Sprint</h3>
+              <p>Build a demo in 4 hours. Theme revealed on the spot.</p>
+              <a href="#register" class="chip">Register</a>
+            </article>
+            <article class="event reveal">
+              <div class="event__tag">Design</div>
+              <h3>Poster Jam</h3>
+              <p>Create a poster with a surprise brief. Live printing!</p>
+              <a href="#register" class="chip">Register</a>
+            </article>
+            <article class="event reveal">
+              <div class="event__tag">Robotics</div>
+              <h3>Line Follower</h3>
+              <p>Precision and speed on a dynamic track.</p>
+              <a href="#register" class="chip">Register</a>
+            </article>
+            <article class="event reveal">
+              <div class="event__tag">Culture</div>
+              <h3>Dance-Off</h3>
+              <p>Solo and crew categories with live audience voting.</p>
+              <a href="#register" class="chip">Register</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- REGISTER / CTA -->
+      <section id="register" class="section register" data-scroll-section>
+        <div class="container narrow">
+          <h2 class="section__title center">Ready to Join?</h2>
+          <p class="center muted">Sign-ups open now. Limited seats for workshops.</p>
+          <form class="register__form reveal" onsubmit="event.preventDefault(); alert('Thanks for registering!');">
+            <div class="form__row">
+              <input type="text" placeholder="Full Name" required />
+              <input type="email" placeholder="Email" required />
+            </div>
+            <div class="form__row">
+              <input type="text" placeholder="College / School" required />
+              <select required>
+                <option value="" disabled selected>Select Event</option>
+                <option>Hack Sprint</option>
+                <option>Poster Jam</option>
+                <option>Line Follower</option>
+                <option>Dance-Off</option>
+              </select>
+            </div>
+            <button class="btn btn--primary large" type="submit">Register Now</button>
+          </form>
+        </div>
+      </section>
+
+      <!-- FOOTER -->
+      <footer class="footer" data-scroll-section>
+        <div class="container footer__inner">
+          <p>© 2025 School Carnival • Designed for the modern campus</p>
+          <div class="socials">
+            <a href="#" aria-label="instagram">IG</a>
+            <a href="#" aria-label="twitter">X</a>
+            <a href="#" aria-label="youtube">YT</a>
+          </div>
+        </div>
+      </footer>
+    </main>
+
+    <!-- Main JS -->
+    <script src="/assets/js/main.js"></script>
   </body>
 </html>
